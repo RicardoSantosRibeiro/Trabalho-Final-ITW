@@ -1,0 +1,26 @@
+﻿<section>
+<div class="page-header">
+    <h2>DirectorService - <small data-bind="visible: (directorsCount() > 0)"><i class="fa fa-film"></i> Directors List [<span data-bind="text: directorsCount"></span> ]</small></h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Director Name:</span>
+                <input type="text" id="directorTitle" class="form-control" data-bind="value : searchText" aria-describedby="basic-addon1" placeholder="Director name" />
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-default" id="searchBtn" data-bind="click: searchDirectors, disable : searchTextGood"><i class="fa fa-search"></i></button>
+            <button class="btn btn-default" id="clearSearchBtn" data-bind="click : clearDirectors"><i class="fa fa-trash-o"></i></button>
+        </div>
+    </div>
+    <hr />
+    <div class="row" data-bind="foreach: directors">
+        <div class="col-md-4">
+            <div><i class="fa fa-film"></i> <a data-bind="attr: { href : '/DirectorDetails/'+directorID}, text: directorName"></a></div>
+        </div>
+    </div>
+    <span class="alert alert-danger col-md-12" data-bind="visible: error, html: error"></span>
+</div>
+</section>
